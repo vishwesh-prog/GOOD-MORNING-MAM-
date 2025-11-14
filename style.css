@@ -1,0 +1,75 @@
+:root{
+  --pink1: #ff8ba0;
+  --pink2: #ff4d6d;
+  --white: #ffffff;
+}
+*{ box-sizing: border-box; }
+html,body{ height:100%; margin:0; font-family: Arial, Helvetica, sans-serif;}
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background: linear-gradient(135deg, var(--pink1), var(--pink2));
+}
+
+/* center container behavior is handled by absolute positions of elements */
+#startBtn{
+  padding:18px 40px;
+  background: var(--white);
+  color: #ff2e5a;
+  border:none;
+  border-radius:12px;
+  font-size:1.25rem;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition: transform .18s ease, box-shadow .18s ease;
+  z-index:10;
+}
+#startBtn:hover{ transform: translateY(-4px) }
+
+#messageBox{
+  position: absolute;
+  top:18px;
+  width:100%;
+  text-align:center;
+  font-size:1.08rem;
+  color: white;
+  font-weight:600;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+  padding: 0 14px;
+  line-height:1.5;
+}
+
+#chum{
+  position:absolute;
+  width:120px;
+  height:auto;
+  cursor:pointer;
+  display:none;
+  user-select:none;
+  transform: translate(-50%,-50%);
+  transition: transform .12s linear;
+  z-index:9;
+  will-change: left, top, transform;
+}
+
+/* restart/ok button style if created by JS */
+#okBtn{
+  padding:12px 26px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  position:absolute;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:11;
+}
+
+/* responsive */
+@media (max-width:480px){
+  #chum{ width:90px; }
+  #startBtn{ padding:14px 28px; font-size:1rem; }
+}
